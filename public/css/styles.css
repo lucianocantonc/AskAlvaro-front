@@ -1,0 +1,38 @@
+body{
+    text-align: center;
+
+}
+section {
+    display: inline-block;
+    width: 40%;
+    padding: 10px 10px 10px 10px;
+    vertical-align: top;
+    margin: 10px 10px 10px 10px;
+}
+
+article{
+    text-align: left;
+    padding: 10px 10px 10px 10px ;
+    margin: 10px 10px 10px 10px;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12);
+}
+
+.project{
+    font-weight: bold;
+    color: #066b0a;
+    margin: 0px 0px 5px 0px;
+}
+
+.question{
+    font-style: italic;
+    font-weight: bold;
+    margin: 0px 0px 5px 0px
+}
+
+.user {
+    font-style: italic;
+    font-size: small;
+    color: darkslategrey;
+}
