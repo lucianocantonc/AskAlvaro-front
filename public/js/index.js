@@ -1,5 +1,9 @@
 $(document).ready(() => {
-    getQuestions() 
+    getQuestions(); 
+    $("#summit").click(() => {
+        
+        registerQuestion()
+    })
 });
 
 function getQuestions(){
@@ -35,4 +39,36 @@ function displayQuestions(rows){
     }
     
     $("#questions-wrapper").html(html);
+}
+
+function registerQuestion(){  
+
+
+    const question = {
+        question: document.getElementById("question-textarea").value,
+        project: $('input[name="options"]:checked').val(),   
+        name: "testadore",
+    }
+    
+    // console.log(question)
+    
+    $.ajax({
+        type: "POST",
+        url: "https://askalvaro.rj.r.appspot.com/register",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        data: JSON.stringify(question),
+        success: (response) => {
+            console.log(response)
+            $("#question-textarea").val(" ")
+            getQuestions()
+        },
+        error: (e) => {
+            console.log("ERROR : ", e);
+        }
+
+        
+      });
+    
 }
