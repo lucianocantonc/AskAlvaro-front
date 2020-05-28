@@ -36,3 +36,12 @@ article{
     font-size: small;
     color: darkslategrey;
 }
+
+.user-photo {
+    /* display: inline-block; */
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    vertical-align: top;
+    display: inline-block;
+}
