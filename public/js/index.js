@@ -2,9 +2,9 @@ $(document).ready(() => {
 
     firebase.auth().onAuthStateChanged((user) => {
         if(user){
-            console.log("hay un usuario logado")
+            // console.log("hay un usuario logado")
             console.log(user)
-            
+            $("#hellouser").html("Hello, " + user.displayName)
             $("#admin-photo").attr("src", user.photoURL)
             getQuestions(); 
             $("#summit").click(() => {registerQuestion()})
@@ -35,6 +35,8 @@ function getQuestions(){
 }
 
 function displayQuestions(rows){
+    // var user = firebase.auth().currentUser;
+    // var displayphoto = user.photoURL;
     var html = "";
     for(var i=0, row; row = rows[i]; i++){
         html += `
