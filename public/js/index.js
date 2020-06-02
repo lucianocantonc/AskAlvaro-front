@@ -3,7 +3,7 @@ $(document).ready(() => {
     firebase.auth().onAuthStateChanged((user) => {
         if(user){
             // console.log("hay un usuario logado")
-            console.log(user)
+            //console.log(user)
             $("#hellouser").html("Hello, " + user.displayName)
             $("#admin-photo").attr("src", user.photoURL)
             getQuestions(); 
@@ -41,6 +41,7 @@ function displayQuestions(rows){
     for(var i=0, row; row = rows[i]; i++){
         html += `
         <article>
+            <img class="photo" src="${row.photo}" />
             <div class="project">
                 ${row.project}
             </div>
@@ -49,7 +50,7 @@ function displayQuestions(rows){
             </div>
             <div class="user"> 
                 ${row.name}
-            </div>
+            </div>     
         </article>  `;
     }
     
@@ -58,12 +59,14 @@ function displayQuestions(rows){
 
 function registerQuestion(){  
     var user = firebase.auth().currentUser;
-    var namedisplay = user.displayName
+    var nameDisplay = user.displayName;
+    var photoLink = user.photoURL;
 
     const question = {
         question: document.getElementById("question-textarea").value,
         project: $('input[name="options"]:checked').val(),   
-        name: namedisplay,
+        name: nameDisplay,
+        photo: photoLink,
     }
     
     //console.log(question)
