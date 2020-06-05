@@ -39,9 +39,9 @@ function displayQuestions(rows){
     // var displayphoto = user.photoURL;
     var html = "";
     for(var i=0, row; row = rows[i]; i++){
-        html += `
+        html += `  
         <article>
-            <img class="photo" src="${row.photo}" />
+        <img class="photo" src="${row.photo}" />
             <div class="project">
                 ${row.project}
             </div>

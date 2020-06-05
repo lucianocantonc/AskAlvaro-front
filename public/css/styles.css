@@ -50,7 +50,6 @@ article{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    float:right;
-    display: inline-block;
+    float: right;
     padding-top:15px;
 }
