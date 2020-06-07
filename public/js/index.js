@@ -7,6 +7,7 @@ $(document).ready(() => {
             $("#hellouser").html("Hello, " + user.displayName)
             $("#admin-photo").attr("src", user.photoURL)
             getQuestions(); 
+            enableSaveButton();            
             $("#summit").click(() => {registerQuestion()})
         }else{
             console.log("no hay nadieSSSSS")
@@ -70,7 +71,7 @@ function registerQuestion(){
     }
     
     //console.log(question)
-    
+  
     $.ajax({
         type: "POST",
         url: "https://askalvaro.rj.r.appspot.com/register",
@@ -91,6 +92,18 @@ function registerQuestion(){
       });
     
 }
+
+function enableSaveButton(){
+    $("#summit").attr("disabled", true);
+    $("#question-textarea").keyup(function() {
+       if($(this).val() != '') {
+          $(':input[name="submit"]').prop('disabled', false);
+        
+       } else {
+           enableSaveButton()
+       }
+    })
+}    
 
 function userLogin(){
     var provider = new firebase.auth.GoogleAuthProvider();
