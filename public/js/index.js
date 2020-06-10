@@ -11,6 +11,7 @@ $(document).ready(() => {
                 if($.trim($('#question-textarea').val()) == ''){
                     alert('You must write a question!');
                  } else {
+                     loadingBar();
                      registerQuestion();
                     }
                 })
@@ -97,11 +98,10 @@ function registerQuestion(){
 }    
 
 function loadingBar(){
-    var loading = `
-    <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
-    `;
-
-    $("#loading-bar").html(loading);
+    $("#summit").attr("class", "mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active" );
+    $(document).ready(()=>
+    $("#summit").attr("class", "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" )
+    );
 
 }
 
