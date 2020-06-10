@@ -6,18 +6,21 @@ $(document).ready(() => {
             //console.log(user)
             $("#hellouser").html("Hello, " + user.displayName)
             $("#admin-photo").attr("src", user.photoURL)
-            getQuestions(); 
-            enableSaveButton();            
-            $("#summit").click(() => {registerQuestion()})
-        }else{
+            getQuestions();    
+            $("#summit").click(() => {
+                if($.trim($('#question-textarea').val()) == ''){
+                    alert('You must write a question!');
+                 } else {
+                     registerQuestion();
+                    }
+                })
+            }
+        else {
             console.log("no hay nadieSSSSS")
             userLogin();
-        }
-    });
-      
-
-    
-    
+        };
+    });   
+  
 });
 
 function getQuestions(){
@@ -91,19 +94,16 @@ function registerQuestion(){
         
       });
     
-}
-
-function enableSaveButton(){
-    $("#summit").attr("disabled", true);
-    $("#question-textarea").keyup(function() {
-       if($(this).val() != '') {
-          $(':input[name="submit"]').prop('disabled', false);
-        
-       } else {
-           enableSaveButton()
-       }
-    })
 }    
+
+function loadingBar(){
+    var loading = `
+    <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+    `;
+
+    $("#loading-bar").html(loading);
+
+}
 
 function userLogin(){
     var provider = new firebase.auth.GoogleAuthProvider();
