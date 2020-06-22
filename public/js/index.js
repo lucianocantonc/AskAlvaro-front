@@ -6,7 +6,8 @@ $(document).ready(() => {
             //console.log(user)
             $("#hellouser").html("Hello, " + user.displayName)
             $("#admin-photo").attr("src", user.photoURL)
-            getQuestions();    
+            getQuestions();
+            $("#logout").click(()=>{logOut();})    
             $("#summit").click(() => {
                 if($.trim($('#question-textarea').val()) == ''){
                     alert('You must write a question!');
@@ -134,10 +135,10 @@ function userLogin(){
     });
 }
 
-function signOut(){
+function logOut(){
     firebase.auth().signOut().then(function() {
-        // Sign-out successful.
+        
     }).catch(function(error) {
-        // An error happened.
+        
     });
 }

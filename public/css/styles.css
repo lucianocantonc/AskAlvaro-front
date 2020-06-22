@@ -53,3 +53,7 @@ article{
     float: right;
     padding-top:15px;
 }
+
+.mdl-navigation__link{
+    text-align: left;
+}
